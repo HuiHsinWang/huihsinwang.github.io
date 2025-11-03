@@ -1,12 +1,38 @@
----
-layout: default
----
-<h1>{{ page.title }}</h1>
-<ul>
-  {% assign cat_posts = site.categories[page.category] %}
-  {% for post in cat_posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a> - <small>{{ post.date | date: "%Y-%m-%d" }}</small>
-    </li>
-  {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: auto; padding: 20px; line-height: 1.6; }
+    header { margin-bottom: 40px; }
+    h1 { font-size: 2rem; }
+    article { margin-bottom: 30px; }
+    a { text-decoration: none; color: #007acc; }
+    a:hover { text-decoration: underline; }
+    nav a { margin-right: 15px; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+    </nav>
+    <h1>{{ page.title }}</h1>
+  </header>
+
+  <main>
+    <ul>
+      {% assign cat_posts = site.posts | where_exp:"post","post.categories contains page.category" %}
+      {% for post in cat_posts %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a> - <small>{{ post.date | date: "%Y-%m-%d" }}</small>
+        </li>
+      {% endfor %}
+    </ul>
+  </main>
+</body>
+</html>
