@@ -1,6 +1,6 @@
 
 ---
-layout: defualt
+layout: default
 title: "Hui Hsin's Space"
 ---
 
@@ -15,5 +15,4 @@ title: "Hui Hsin's Space"
 {% endfor %}
 </ul>
 
-## Welcome to my own sharing. 
-### I am Hui Hsin, a Taiwanese, a doctoral student site in Japan now, focus on oceanography climate change. Experience in high school teacher in Taiwan, process engineer in TSMC semiconductor company as my career before.
+### I am Hui Hsin, Welcome to my own sharing.  
